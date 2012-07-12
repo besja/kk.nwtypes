@@ -22,7 +22,7 @@
         <div class="ad-thumbs">
           <ul class="ad-thumb-list">
             <li tal:repeat="result images">
-              <a tal:attributes="href python: result.absolute_url() + '/image_large';"  target="_blank" rel="lightbox">
+              <a tal:attributes="href python: result.absolute_url() + '/image';"  target="_blank" rel="lightbox">
                       		  	<img tal:attributes="alt python: result.Title();
                       						         class python: 'thumbnail';
                       		  				         src python: result.absolute_url() + '/image_thumb';" />
