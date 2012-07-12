@@ -22,7 +22,7 @@
 	<div id="isotope-container">
 		<div tal:repeat="result results" class="item">
 			<tal:x tal:content="structure python:result.getObject().getProjectIcon('mini')"></tal:x>
-			<p><a tal:attributes="href result/getURL" tal:content="result/Title"></a></p>
+			<div><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
 		</div>
 	</div>
 

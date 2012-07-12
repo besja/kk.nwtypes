@@ -60,8 +60,10 @@
 		<tal:x tal:repeat="result results">
 		<div tal:define="obj result/getObject" 
 		  tal:attributes="class string:element ${obj/getProjectFilter}">
-			<tal:x tal:content="structure python:obj.getProjectIcon('mini')"></tal:x>
-			<p><a tal:attributes="href result/getURL" tal:content="result/Title"></a></p>
+			<a tal:attributes="href result/getURL">
+				<tal:x tal:content="structure python:obj.getProjectIcon('preview')"></tal:x>
+			</a>
+			<div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
 		</div>
 		</tal:x>
 	</div>

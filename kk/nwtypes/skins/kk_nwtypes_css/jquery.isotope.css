@@ -1,12 +1,27 @@
 /**** Isotope Filtering ****/
 
 .isotope-item {
-  z-index: 2;
+	z-index: 2;
+	margin: 0px 5px 5px 0px;
+	border: 0px solid red;
+	padding: 0px;
+}
+
+.isotope-item img {
+	border: 0px solid red;
+	width: 340px;
+	height: 210px;
 }
 
 .isotope-hidden.isotope-item {
   pointer-events: none;
   z-index: 1;
+}
+
+.underline {
+	font-size: 0.7em;
+	border: 0px solid red;
+	line-height: 1.4em;
 }
 
 /**** Isotope CSS3 transitions ****/
