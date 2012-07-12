@@ -1,0 +1,9 @@
+<portlets>
+
+  <portlet
+    addview="nwtypes.Contact"
+    title="Contact"
+    description="show a contact"
+    />
+
+</portlets>

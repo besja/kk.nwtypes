@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="plone"
+     tal:omit-tag=""
+     tal:define="portal context/@@plone_portal_state/portal;
+                 charset portal/email_charset|string:utf-8;
+                 dummy python:request.RESPONSE.setHeader('Content-Type', 'text/plain;;charset=%s' % charset);"
+>
+Name: <span tal:omit-tag="" tal:content="options/name | nothing"></span>
+Phone: <span tal:omit-tag="" tal:content="options/phone | nothing"></span>
+Street: <span tal:omit-tag="" tal:content="options/street | nothing"></span>
+Email: <span tal:omit-tag="" tal:content="options/email | nothing"></span>
+PLZ/ORT: <span tal:omit-tag="" tal:content="options/plzort | nothing"></span>
+Betreff: <span tal:omit-tag="" tal:content="options/betreff | nothing"></span>
+<tal:x tal:condition="options/chk1">Kaufen</tal:x>
+<tal:x tal:condition="options/chk2">Reservierung</tal:x>
+<span tal:omit-tag="" tal:content="options/message | nothing" />
+
+--
+
+
+
+</div>

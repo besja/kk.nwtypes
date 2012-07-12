@@ -1,0 +1,8 @@
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+<javascript cacheable="True" compression="none" cookable="True"
+            enabled="True" expression="python: here.meta_type in ['Project']" id="jquery.ad-gallery.min.js" inline="False"/>
+<javascript cacheable="True" compression="none" cookable="True"
+            enabled="True" expression="python: here.meta_type in ['Project']" id="init_gallery.js" inline="False"/>
+<javascript cacheable="True" compression="none" cookable="True"
+            enabled="True" expression="" id="jquery.isotope.min.js" inline="False"/>
+</object>

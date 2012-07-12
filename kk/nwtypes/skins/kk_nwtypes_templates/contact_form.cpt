@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="kk.chproducts">
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+<div class="text" tal:content="structure context/getText"></div>
+<form tal:define="errors options/state/getErrors"
+           tal:attributes="action string:${here/absolute_url}/${template/id};"
+          method="get" class="nwcontact">
+        <input type="hidden" name="form.submitted" value="1" />
+       <div metal:use-macro="context/special_offer_form/macros/basic-form">
+
+        </div>
+        <div class="field">
+        	<label class="formQuestion" for="message">Message</label>
+        	<textarea name="message" tal:define="val request/message|nothing" tal:content="val"></textarea>
+        </div>
+        <div></div>
+        <div class="field" tal:define="contact python:context.portal_catalog(portal_type='Contact')[0];
+        							   infdict python:contact.getObject().getInfDict();
+        							   default_chks python: request.get('chk[]', [])">
+        	 <label class="formQuestion" for="chk[]">Information <span class="required"></span></label>
+        	
+        	<div class="fieldErrorBox" tal:define="info errors/info|nothing" tal:condition="info" tal:content="info" />
+        	<tal:x tal:repeat = "i infdict">
+        	
+        			<div class="chk-line" tal:define="chk1 python:request.get('chk1', None)">
+        			<input type="checkbox" 
+        				name="chk[]" 
+        				value="1"
+        				tal:attributes="checked python: i[0] in default_chks and True or nothing; value python:i[0]"/> 
+        				<tal:x tal:content="python:i[1]"/>
+        			</div>
+ 
+        	</tal:x>
+        	<input type="hidden" name="chk[]" value=""/>
+         	
+        </div>
+        <input type="submit" name="submit" value="absenden" />
+        <input type="button" value="reset" onclick="this.form.reset()"/>
+        
+</form>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

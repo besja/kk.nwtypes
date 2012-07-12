@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:plone="http://namespaces.plone.org/plone">
+
+    <include package="plone.app.portlets" />
+
+        <plone:portlet
+        name="nwtypes.Contact"
+        interface="kk.nwtypes.browser.contact.IContactPortlet"
+         assignment="kk.nwtypes.browser.contact.ContactAssignment"
+         renderer="kk.nwtypes.browser.contact.ContactRenderer"
+         addview="kk.nwtypes.browser.contact.ContactAddForm"
+         editview="kk.nwtypes.browser.contact.ContactEditForm"
+         />
+
+</configure>

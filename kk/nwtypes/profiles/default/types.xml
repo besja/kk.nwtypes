@@ -1,0 +1,13 @@
+<object name="portal_types" meta_type="Plone Types Tool">
+
+ <object name="Project"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="ProjectCategory"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="SpecialOffer"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="SpecialOfferCategory"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="Contact"
+    meta_type="Factory-based Type Information with dynamic views"/>
+</object>

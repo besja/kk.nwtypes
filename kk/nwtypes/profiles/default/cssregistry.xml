@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<object name="portal_css" meta_type="Stylesheets Registry">
+ <stylesheet title="" cacheable="True" compression="safe" cookable="True"
+     enabled="1" id="jquery.ad-gallery.css" media="screen"
+     expression=""
+     rel="stylesheet" rendering="import" 
+     insert-before="ploneCustom.css"
+     />
+ <stylesheet title="" cacheable="True" compression="safe" cookable="True"
+     enabled="1" id="jquery.isotope.css" media="screen"
+     expression=""
+     rel="stylesheet" rendering="import" 
+     insert-before="jquery.ad-gallery.css"
+     />
+</object>

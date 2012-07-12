@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="kk.nwtypes">
+  <five:registerPackage package="." initialize=".initialize" />
+ 
+
+  <include file="skins.zcml" />
+  <genericsetup:registerProfile
+      name="default"
+      title="kk.nwtypes"
+      directory="profiles/default"
+      description="Installs the kk.nwtypes package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+      
+    <include package=".browser" />
+    <include package=".portlets" />
+  <!-- -*- extra stuff goes here -*- -->
+  
+</configure>

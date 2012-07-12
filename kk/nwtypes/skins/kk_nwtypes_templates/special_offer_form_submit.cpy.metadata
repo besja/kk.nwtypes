@@ -1,0 +1,6 @@
+[default]
+proxy=Manager,Anonymous
+
+
+[actions]
+action.success = traverse_to:string:special_offer_form

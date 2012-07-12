@@ -1,0 +1,8 @@
+[default]
+title = Special Offer Form
+
+[validators]
+validators = special_offer_form_validate, team_contact_form_validate
+
+[actions]
+action.success = traverse_to:string:team_contact_form_submit

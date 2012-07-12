@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser" 
+    xmlns:plone="http://namespaces.plone.org/plone"  
+    i18n_domain="kk.nwtypes">
+    
+    <!-- We need to include the package of the portlets we are customising -->
+    
+    <browser:page
+        for="*"
+        name="projects_view"
+        class=".folder.IsotopeView"
+        permission="zope2.View"
+
+	 	/>
+    <browser:page
+        for="*"
+        name="offers_view"
+        class=".folder.IsotopeOffersView"
+        permission="zope2.View"
+
+	 	/>   
+    <browser:page
+        for="*"
+        name="contact_list_view"
+        class=".folder.ContactListView"
+        permission="zope2.View"
+
+	 	/>   
+    <browser:page
+        for="..interfaces.IProject"
+        name="view"
+        class=".project.ProjectView"
+        permission="zope2.View"
+
+	 	/>
+    <browser:page
+        for="..interfaces.IProjectCategory"
+        name="view"
+        class=".projectcategory.ProjectCategoryView"
+        permission="zope2.View"
+
+	 	/>
+    <browser:page
+        for="..interfaces.ISpecialOfferCategory"
+        name="view"
+        class=".projectcategory.SOCategoryView"
+        permission="zope2.View"
+
+	 	/>
+</configure>
