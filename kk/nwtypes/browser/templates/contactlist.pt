@@ -22,7 +22,7 @@
 	<div id="isotope-container" class="contact-list">
 		<div tal:repeat="result results" class="item contact-item">
 			<tal:x tal:define="obj result/getObject">
-			<tal:x tal:replace="structure python:obj.tag(scale='mini')"> </tal:x>
+			<tal:x tal:replace="structure python:obj.tag(scale='preview')"> </tal:x>
 			<h3><a tal:attributes="href result/getURL" tal:content="result/Title"></a></h3>
 		
 			<div class="description" tal:content="obj/Description"></div>
