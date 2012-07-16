@@ -1,5 +1,5 @@
 [default]
-title = Special Offer Form
+title = Contact Form
 
 [validators]
 validators = special_offer_form_validate, team_contact_form_validate
