@@ -8,11 +8,9 @@
 
 <body>
 
-<metal:content-core fill-slot="body">
+<metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
 <div class="info">
-<h1 tal:content="context/Title"></h1>
-<div class="description" tal:content="structure context/Description"></div>
 <tal:x tal:replace="structure python:context.tag(scale='mini')" />
 <div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="context/getPhone"/></div>
 <div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="context/getFax"/></div>
