@@ -28,7 +28,7 @@
 			<div class="description" tal:content="obj/Description"></div>
 			<div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="obj/getPhone"/></div>
 			<div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="obj/getFax"/></div>
-			<div class="field email"><a tal:attributes="href string:mailto:${obj/getEmail}" tal:content="obj/getEmail"></a></div>
+			<div class="field email"><a tal:attributes="href result/getURL">>email</a></div>
 			</tal:x>
 		</div>
 	</div>
