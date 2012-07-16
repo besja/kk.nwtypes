@@ -12,9 +12,11 @@
 <metal:block define-macro="content-core">
 <div class="info">
 <tal:x tal:replace="structure python:context.tag(scale='mini')" />
+<div class="field position"><span class="label">Position:</span> <tal:x tal:content="context/getPosition"/></div>
 <div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="context/getPhone"/></div>
 <div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="context/getFax"/></div>
 <div class="field email"><a tal:attributes="href string:mailto:${context/getEmail}" tal:content="context/getEmail"></a></div>
+<div class="text" tal:content="structure context/getText"></div>
 </div>
 <form tal:define="errors options/state/getErrors"
            tal:attributes="action string:${here/absolute_url}/${template/id};"

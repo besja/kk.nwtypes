@@ -1,7 +1,7 @@
 from zope.interface import implements
 from zope.component import adapts
 from Products.Archetypes.atapi import *
-from Products.ATContentTypes.content import image
+from Products.ATContentTypes.content import image, document
 from Products.ATContentTypes.content.schemata import ATContentTypeSchema
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from Products.ATContentTypes.content.base import ATCTContent
@@ -10,10 +10,12 @@ from kk.nwtypes.config import PROJECTNAME, INFORMATION
 from Products.ATContentTypes.configuration import zconf
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner, aq_parent
+documentSchema = document.ATDocumentSchema.copy()
+documentSchema['text'].primary = False
 
-
-ContactSchema =  ATContentTypeSchema.copy() + image.ATImageSchema.copy() + Schema((
-
+ContactSchema =  documentSchema + image.ATImageSchema.copy() + Schema((
+	StringField("position", 
+	widget = StringWidget(label="position"), ), 
 	StringField("phone", 
 	widget = StringWidget(label="phone"), ), 
 	
@@ -21,6 +23,7 @@ ContactSchema =  ATContentTypeSchema.copy() + image.ATImageSchema.copy() + Schem
 	widget = StringWidget(label="fax"), ), 
 	
 	StringField("email", 
+	required = True,
 	widget = StringWidget(label="email"),), 
 
 	StringField("information", 
