@@ -16,7 +16,7 @@
  <property name="allow_discussion">False</property>
  <property name="default_view">team_contact_form</property>
  <property name="view_methods">
-  <element value="special_offer_form"/>
+  <element value="team_contact_form"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
