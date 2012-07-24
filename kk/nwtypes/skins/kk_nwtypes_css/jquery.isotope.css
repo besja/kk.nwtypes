@@ -63,7 +63,7 @@
           transition-duration: 0s;
 }
 #isotope-container .item{
-	margin-right:10px;
+	margin:0px 10px 10px 0px;
 }
 form.nwcontact label  {
 	display:block;
@@ -73,27 +73,34 @@ form.nwcontact label  {
 	height:auto;
 }
 .contact-item {
-	width:224px;
-	height:122px;
-	border:1px #333333 solid;
-	border-width: 1px 0px 1px 0px;
+	width:340px;
+	height:124px;
+	border:0px;
 	padding: 0px !important;
 	position:relative;
 	font-size: 0.6em;
 	line-height: 1.5em;
+	background: #e4e4e4;
 }
 .contact-item h3 {
 	border: 0px solid black;
 	padding: 5px 0px 0px 0px;
+	font-size: 1.2em;
 }
 .contact-item .email {
-	position:absolute;
 	bottom:10px;
 }
 .contact-item img {
-	float:right;
+	float:left;
+	height: 124px;
+	width: 90px;
+	margin: 0px 10px 0px 0px;
 }
 .contact-item .field {
 	clear:none;
-	margin:0;
+	margin:0px 0px 3px 0px;
+}
+
+.contact-item .description {
+	margin: 0px 0px 15px 0px;
 }

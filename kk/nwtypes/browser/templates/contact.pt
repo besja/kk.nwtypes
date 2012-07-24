@@ -17,7 +17,7 @@
 			<div class="description" tal:content="contact/Description"></div>
 			<div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="contact/getPhone"/></div>
 			<div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="contact/getFax"/></div>
-			<div class="field email"><a tal:attributes="href contact/absolute_url">>email</a></div>
+			<div class="field email"><a tal:attributes="href contact/absolute_url">>E-Mail</a></div>
 
 		</div>
         <span class="portletBottomLeft"></span>
