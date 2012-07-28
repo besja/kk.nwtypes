@@ -82,6 +82,17 @@ form.nwcontact label  {
 	line-height: 1.5em;
 	background: #e4e4e4;
 }
+
+.portletItem  .contact-item {
+	width:230px;
+	height:124px;
+	border:0px;
+	padding: 0px !important;
+	position:relative;
+	font-size: 0.8em;
+	line-height: 1.5em;
+	background: #e4e4e4;
+}
 .contact-item h3 {
 	border: 0px solid black;
 	padding: 5px 0px 0px 0px;

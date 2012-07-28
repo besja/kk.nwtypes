@@ -1,12 +1,12 @@
 <tal:block i18n:domain="plone">
 
-<dl class="portlet portletNavigationTree" tal:condition="view/available" tal:define="contact view/contact">
-    <dt class="portletHeader"
+<dl class="portlet portletContact" tal:condition="view/available" tal:define="contact view/contact">
+    <!--<dt class="portletHeader"
         tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'">
         <span class="portletTopLeft"></span>
 		<a tal:attributes="href python:contact.absolute_url()" tal:content="contact/Title"></a>
         <span class="portletTopRight"></span>
-    </dt>
+    </dt>-->
 
     <dd class="portletItem lastItem">
     	<div class="contact-item">
