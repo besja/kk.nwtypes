@@ -11,12 +11,20 @@
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
 <div class="info">
-<tal:x tal:replace="structure python:context.tag(scale='mini')" />
-<div class="field position"><span class="label">Position:</span> <tal:x tal:content="context/getPosition"/></div>
+	<table>
+		<tr>
+			<td>
+				
+<div class="contactimage"><tal:x tal:replace="structure python:context.tag(scale='preview')" /></div>
 <div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="context/getPhone"/></div>
 <div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="context/getFax"/></div>
 <div class="text" tal:content="structure context/getText"></div>
-</div>
+		</td>
+<!--<div class="field position"><span class="label">Position:</span> <tal:x tal:content="context/getPosition"/></div>-->
+<td>
+
+
+
 <form tal:define="errors options/state/getErrors"
            tal:attributes="action string:${here/absolute_url}/${template/id};"
           method="get" class="nwcontact">
@@ -49,10 +57,14 @@
         	<input type="hidden" name="chk[]" value=""/>
          	
         </div>
-        <input type="submit" name="submit" value="absenden" />
-        <input type="button" value="reset" onclick="this.form.reset()"/>
+        <input class="btn" type="submit" name="submit" value="absenden" />
+        <input class="btn" type="button" value="reset" onclick="this.form.reset()"/>
         
 </form>
+</td>
+</tr>
+</table>
+</div>
 
 </metal:block>
 </metal:content-core>

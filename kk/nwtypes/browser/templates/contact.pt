@@ -7,18 +7,14 @@
 		<a tal:attributes="href python:contact.absolute_url()" tal:content="contact/Title"></a>
         <span class="portletTopRight"></span>
     </dt>-->
-
-    <dd class="portletItem lastItem">
-    	<div class="contact-item">
-
-			<tal:x tal:replace="structure python:contact.tag(scale='mini')"> </tal:x>
+	<dd class="portletItem lastItem">
+		<div class="contact-item">
+			<tal:x tal:replace="structure python:contact.tag(scale='large')"> </tal:x>
 			<h3><a tal:attributes="href contact/absolute_url" tal:content="contact/Title"></a></h3>
-		
 			<div class="description" tal:content="contact/Description"></div>
 			<div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="contact/getPhone"/></div>
 			<div class="field fax"><span class="label">Fax.:</span><tal:x  tal:content="contact/getFax"/></div>
 			<div class="field email"><a tal:attributes="href contact/absolute_url">>E-Mail</a></div>
-
 		</div>
         <span class="portletBottomLeft"></span>
         <span class="portletBottomRight"></span>
