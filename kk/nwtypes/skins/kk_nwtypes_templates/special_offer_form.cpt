@@ -20,7 +20,7 @@
         <input type="hidden" name="form.submitted" value="1" />
        <div metal:define-macro="basic-form">
         <div class="field">
-          <label class="formQuestion" for="name">Name <span class="required"></span></label>
+          <label class="formQuestion" for="name">Name <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="name errors/name|nothing" tal:condition="name" tal:content="name" />
           <input type="text"
@@ -29,7 +29,7 @@
                tal:attributes="value val" />
         </div>
         <div class="field">
-          <label class="formQuestion" for="phone">Telefon <span class="required"></span></label>
+          <label class="formQuestion" for="phone">Telefon <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="phone errors/phone|nothing" tal:condition="phone" tal:content="phone" />
           <input type="text"
@@ -38,7 +38,7 @@
                tal:attributes="value val" />
         </div>
         <div class="field">
-          <label class="formQuestion" for="street">Strasse/Nr. <span class="required"></span></label>
+          <label class="formQuestion" for="street">Strasse/Nr. <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="street errors/street|nothing" tal:condition="street" tal:content="street" />
           <input type="text"
@@ -47,7 +47,7 @@
                tal:attributes="value val" />
         </div>
         <div class="field">
-          <label class="formQuestion" for="email">Ihre E-mail Adresse <span class="required"></span></label>
+          <label class="formQuestion" for="email">Ihre E-mail Adresse <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="email errors/email|nothing" tal:condition="email" tal:content="email" />
           <input type="text"
@@ -56,7 +56,7 @@
                tal:attributes="value val" />
         </div>
         <div class="field">
-          <label class="formQuestion" for="plzort">PLZ / Ort <span class="required"></span></label>
+          <label class="formQuestion" for="plzort">PLZ / Ort <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="plzort errors/plzort|nothing" tal:condition="plzort" tal:content="plzort" />
           <input type="text"
@@ -65,7 +65,7 @@
                tal:attributes="value val" />
         </div>
         <div class="field">
-          <label class="formQuestion" for="betreff">Betreff <span class="required"></span></label>
+          <label class="formQuestion" for="betreff">Betreff <span class="required">■</span></label>
           
           <div class="fieldErrorBox" tal:define="betreff errors/betreff|nothing" tal:condition="betreff" tal:content="betreff" />
           <input type="text"
