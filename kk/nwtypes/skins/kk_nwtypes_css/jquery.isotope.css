@@ -10,7 +10,7 @@
 .isotope-item img {
 	border: 0px solid red;
 	width: 340px;
-	height: 210px;
+	height: %;
 }
 
 .isotope-hidden.isotope-item {

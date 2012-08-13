@@ -16,8 +16,6 @@
 
 	});
    });
-
-
    </script>
 	<div id="isotope-container" class="contact-list">
 		<div tal:repeat="result results" class="item contact-item">
