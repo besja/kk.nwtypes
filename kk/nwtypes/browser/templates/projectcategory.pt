@@ -12,19 +12,31 @@
 <metal:block define-macro="content-core" tal:define="results python:context.portal_catalog(portal_type='Project', path='/'.join(context.getPhysicalPath()),sort_on='getProjectPosition', sort_order='descending')">
    <script type="text/javascript">
    $(function() {
-  	$('#isotope-container').isotope({
-
-	});
+      var $container = $('#isotope-container');
+   $container.isotope({
+         animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+            } , 
+            layoutMode : 'fitRows' , 
+            animationEngine: 'best-available'
+   });
    });
 
 
    </script>
-	<div id="isotope-container">
-		<div tal:repeat="result results" class="item">
-			<tal:x tal:content="structure python:result.getObject().getProjectIcon('mini')"></tal:x>
-			<div><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
-		</div>
-	</div>
+   <div id="isotope-container">
+      <tal:x tal:repeat="result results">
+      <div tal:define="obj result/getObject" 
+        tal:attributes="class string:element ${obj/getProjectFilter}" >
+         <a tal:attributes="href result/getURL">
+            <tal:x tal:content="structure python:obj.getProjectIcon('preview')"></tal:x>
+         </a>
+         <div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
+      </div>
+      </tal:x>
+   </div>
 
 </metal:block>
 </metal:content-core>

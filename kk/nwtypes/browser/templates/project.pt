@@ -17,6 +17,13 @@
       <div class="ad-image-wrapper">
       </div>
       <div class="ad-controls">
+        <div class="back"
+          tal:define="context_state context/@@plone_context_state;
+                      parent context_state/parent;
+                      parent_url parent/absolute_url">
+            <a href="" tal:attributes="href parent_url">
+              &laquo; <span tal:content="parent/Title" /></a>
+        </div>
       </div>
       <div class="ad-nav">
         <div class="ad-thumbs">
