@@ -25,13 +25,81 @@
 
 
 
+
 <form tal:define="errors options/state/getErrors"
            tal:attributes="action string:${here/absolute_url}/${template/id};"
           method="get" class="nwcontact">
         <input type="hidden" name="form.submitted" value="1" />
-       <div metal:use-macro="context/special_offer_form/macros/basic-form">
 
+
+         <div class="field">
+          <label class="formQuestion" for="name">Name <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="name errors/name|nothing" tal:condition="name" tal:content="name" />
+          <input type="text"
+               name="name"
+               tal:define="val request/name|nothing"
+               tal:attributes="value val" />
         </div>
+
+        <div class="field">
+          <label class="formQuestion" for="phone">Telefon <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="phone errors/phone|nothing" tal:condition="phone" tal:content="phone" />
+          <input type="text"
+               name="phone"
+               tal:define="val request/phone|nothing"
+               tal:attributes="value val" />
+        </div>
+
+        <div class="field">
+          <label class="formQuestion" for="street">Strasse/Nr. <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="street errors/street|nothing" tal:condition="street" tal:content="street" />
+          <input type="text"
+               name="street"
+               tal:define="val request/street|nothing"
+               tal:attributes="value val" />
+        </div>
+
+        <div class="field">
+          <label class="formQuestion" for="email">Ihre E-mail Adresse <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="email errors/email|nothing" tal:condition="email" tal:content="email" />
+          <input type="text"
+               name="email"
+               tal:define="val request/email|nothing"
+               tal:attributes="value val" />
+        </div>
+
+        <div class="field">
+          <label class="formQuestion" for="plzort">PLZ / Ort <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="plzort errors/plzort|nothing" tal:condition="plzort" tal:content="plzort" />
+          <input type="text"
+               name="plzort"
+               tal:define="val request/plzort|nothing"
+               tal:attributes="value val" />
+        </div>
+
+        <div class="field">
+          <label class="formQuestion" for="betreff">Betreff <span class="required">■</span></label>
+          
+          <div class="fieldErrorBox" tal:define="betreff errors/betreff|nothing" tal:condition="betreff" tal:content="betreff" />
+          <input type="text"
+               name="betreff"
+               tal:define="val request/betreff|nothing"
+               tal:attributes="value val" />
+        </div>
+
+
+
+
+       <!--<div metal:use-macro="context/special_offer_form/macros/basic-form"></div>-->
+
+
+
+
         <div class="field">
         	<label class="formQuestion" for="message">Message</label>
         	<textarea name="message" tal:define="val request/message|nothing" tal:content="val"></textarea>
