@@ -9,7 +9,9 @@
     </dt>-->
 	<dd class="portletItem lastItem">
 		<div class="contact-item">
+			<a tal:attributes="href contact/absolute_url">
 			<tal:x tal:replace="structure python:contact.tag(scale='large')"> </tal:x>
+			</a>
 			<h3><a tal:attributes="href contact/absolute_url" tal:content="contact/Title"></a></h3>
 			<div class="description" tal:content="contact/Description"></div>
 			<div class="field phone"><span class="label">Tel.:</span> <tal:x tal:content="contact/getPhone"/></div>
