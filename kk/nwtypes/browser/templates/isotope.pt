@@ -19,7 +19,7 @@
      			easing: 'linear',
     			queue: false
    			} , 
-   			layoutMode : 'fitRows' , 
+   			layoutMode : 'masonry' , 
    			animationEngine: 'best-available'
 	});
 	
