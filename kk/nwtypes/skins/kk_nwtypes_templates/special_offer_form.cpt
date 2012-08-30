@@ -11,7 +11,7 @@
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core">
 <div class="info">
-<tal:x tal:replace="structure python:context.tag(scale='mini')" />
+<tal:x tal:replace="structure python:context.tag(scale='large')" />
 <div class="text" tal:content="structure context/getText"></div>
 </div>
 <form tal:define="errors options/state/getErrors"
