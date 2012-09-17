@@ -8,9 +8,9 @@
 }
 
 .isotope-item img {
-	border: 0px solid red;
+	border: 0px;
 	width: 340px;
-	height: %;
+	height: 100%;
 }
 
 .isotope-hidden.isotope-item {
