@@ -4,7 +4,7 @@
     <dt class="portletHeader"
         tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'">
         <span class="portletTopLeft"></span>
-		<a tal:attributes="href python:contact.absolute_url()" tal:content="contact/Title"></a>
+		<a tal:attributes="href python:contact.absolute_url()" tal:content="view/title"></a>
         <span class="portletTopRight"></span>
     </dt>
 	<dd class="portletItem lastItem">

@@ -2,7 +2,6 @@
 
 <dl class="portlet portletNavigationTree"
     tal:define="root view/navigation_root">
-test
     <dt class="portletHeader"
         tal:attributes="class python:view.hasName() and 'portletHeader' or 'portletHeader hiddenStructure'">
         <span class="portletTopLeft"></span>

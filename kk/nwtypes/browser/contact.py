@@ -55,7 +55,7 @@ class ContactRenderer(base.Renderer):
         self.urltool = getToolByName(context, 'portal_url')
 
     def title(self):
-        return self.data.target_contact.Title()
+        return self.data.name
 
 
     @memoize

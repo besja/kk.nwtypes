@@ -8,9 +8,8 @@
 }
 
 .isotope-item img {
-	border: 0px solid red;
+	border: 0px;
 	width: 340px;
-	height: %;
 }
 
 .isotope-hidden.isotope-item {
@@ -73,7 +72,7 @@ form.nwcontact label  {
 	height:auto;
 }
 .contact-item {
-	width:340px;
+	width:335px;
 	height:124px;
 	border:0px;
 	padding: 0px !important;
