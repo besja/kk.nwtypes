@@ -8,6 +8,8 @@ from kk.nwtypes.config import PROJECTNAME
 from Products.ATContentTypes.configuration import zconf
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner, aq_parent
+
+
 documentSchema = document.ATDocumentSchema.copy()
 documentSchema['text'].primary = False
 SpecialOfferSchema =  documentSchema + image.ATImageSchema.copy() + Schema((
@@ -25,11 +27,13 @@ class SpecialOffer(document.ATDocument):
     implements(ISpecialOffer)
     portal_type=meta_type="SpecialOffer"
     schema = SpecialOfferSchema
-    
+
     def getProjectPositionIndex(self):
         return int(self.getProjectPosition())
+
     def getProjectIcon(self, scale):
         return self.tag(scale=scale)
+
     def getProjectFilter(self):
         return self.aq_parent.getId()
         

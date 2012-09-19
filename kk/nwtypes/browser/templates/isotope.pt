@@ -19,36 +19,17 @@
      			easing: 'linear',
     			queue: false
    			} , 
-   			layoutMode : 'masonry' , 
+   			layoutMode : 'masonry',
+        resizable: false, 
    			animationEngine: 'best-available'
-	});
-	var current, filterLinks = $('a[data-appui="contentfilter"').addClass('filterLink');
-  $('a[data-appui="contentfilter"').on('click', function (e) {
+	  });
+	var current = $container.isotope({ filter: "*"});
+  $('a[data-appui="contentfilter"]').click(function (e) {
     e.preventDefault();
     $(this).toggleClass('active');
     var selector = $(this).data('filter');
     $container.isotope({filter: selector});
   });
-	//$(".portletNavigationTree a.contenttype-projectcategory").click(function(){
-	//		var selector = $(this).attr('data-filter');
-  //    $(this).toggleClass('selected-filter');
-  //			$container.isotope({ filter: selector});
-  //			return false;
-	//
-	//});
-	//$(".portletNavigationTree a.contenttype-specialoffercategory").click(function(){
-	//		var selector = $(this).attr('data-filter');
-  //			$container.isotope({ filter: selector});
-  //			return false;
-	//
-	//})
-	//
-	//$(".portletNavigationTree .contenttype-plone-site ").click(function(){
-  //			$container.isotope({ filter: "*"});
-  //			return false;
-	//
-	//})
-
    });
 
 
@@ -65,10 +46,14 @@
    </style>
 	<div id="isotope-container">
 		<tal:x tal:repeat="result results">
-		<div tal:define="obj result/getObject" 
-		  tal:attributes="class string:element ${obj/getProjectFilter}">
+		<div tal:define="item_obj result/getObject" 
+		  tal:attributes="class string:element ${item_obj/getProjectFilter}">
+      <!--<img tal:define="scales item_obj/@@images;
+                 thumbnail python: scales.scale('image', width=400, height=400);"
+        tal:condition="thumbnail"
+        tal:attributes="src thumbnail/url;"/>-->
 			<a tal:attributes="href result/getURL">
-				<tal:x tal:content="structure python:obj.getProjectIcon('preview')"></tal:x>
+				<tal:x tal:content="structure python:item_obj.getProjectIcon('preview')"></tal:x>
 			</a>
 			<div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
 		</div>
