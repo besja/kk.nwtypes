@@ -20,7 +20,7 @@ class IsotopeView(BrowserView):
             results = catalog(portal_type=portal_type,
                               path=dict(query='/'.join(
                                         context.getPhysicalPath()),
-                                        depth=1),
+                                        depth=10),
                               sort_on="getProjectPosition",
                               sort_order="descending")
         else:
