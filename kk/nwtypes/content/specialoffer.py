@@ -1,31 +1,29 @@
 from zope.interface import implements
-from zope.component import adapts
-from Products.Archetypes.atapi import *
+from Products.Archetypes import atapi
 from Products.ATContentTypes.content import image, document
-from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from kk.nwtypes.interfaces import ISpecialOffer
 from kk.nwtypes.config import PROJECTNAME
-from Products.ATContentTypes.configuration import zconf
-from Products.CMFCore.utils import getToolByName
-from Acquisition import aq_inner, aq_parent
 
 
+imgSchema = image.ATImageSchema.copy()
 documentSchema = document.ATDocumentSchema.copy()
 documentSchema['text'].primary = False
-SpecialOfferSchema =  documentSchema + image.ATImageSchema.copy() + Schema((
+SpecialOfferSchema = documentSchema + imgSchema + atapi.Schema((
 
-	StringField("projectPosition", 
-	vocabulary=[(str(i), str(i)) for i in range(0, 100)], 
-	default = 0, 
-	widget = SelectionWidget(label="position"), 
-	)
+    atapi.StringField(
+        "projectPosition",
+        vocabulary=[(str(i), str(i)) for i in range(0, 100)],
+        default=0,
+        widget=atapi.SelectionWidget(
+            label="position"),
+    )
 ))
+
 
 class SpecialOffer(document.ATDocument):
     """ special offer """
-    
     implements(ISpecialOffer)
-    portal_type=meta_type="SpecialOffer"
+    portal_type = meta_type = "SpecialOffer"
     schema = SpecialOfferSchema
 
     def getProjectPositionIndex(self):
@@ -36,12 +34,10 @@ class SpecialOffer(document.ATDocument):
 
     def getProjectFilter(self):
         return self.aq_parent.getId()
-        
+
     def tag(self, **kwargs):
         """Generate image tag using the api of the ImageField
         """
         return self.getField('image').tag(self, **kwargs)
 
-       
-        
-registerType(SpecialOffer, PROJECTNAME)
+atapi.registerType(SpecialOffer, PROJECTNAME)
