@@ -10,30 +10,6 @@
 
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core" tal:define="results view/getContents">
-   <!--<script type="text/javascript">
-   $(function() {
-   	var $container = $('#isotope-container');
-  	$container.isotope({
-  			animationOptions: {
-     			duration: 750,
-     			easing: 'linear',
-    			queue: false
-   			} , 
-   			layoutMode : 'masonry',
-        resizable: false, 
-   			animationEngine: 'best-available'
-	  });
-	var current = $container.isotope({ filter: "*"});
-  $('a[data-appui="contentfilter"]').click(function (e) {
-    e.preventDefault();
-    $(this).toggleClass('active');
-    var selector = $(this).data('filter');
-    $container.isotope({filter: selector});
-  });
-   });
-
-
-   </script>-->
    <style>
   .isotope-item {
   z-index: 2;
