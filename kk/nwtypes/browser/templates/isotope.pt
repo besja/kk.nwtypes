@@ -22,25 +22,32 @@
    			layoutMode : 'masonry' , 
    			animationEngine: 'best-available'
 	});
-	
-	$(".portletNavigationTree a.contenttype-projectcategory").click(function(){
-			var selector = $(this).attr('data-filter');
-  			$container.isotope({ filter: selector});
-  			return false;
-	
-	});
-	$(".portletNavigationTree a.contenttype-specialoffercategory").click(function(){
-			var selector = $(this).attr('data-filter');
-  			$container.isotope({ filter: selector});
-  			return false;
-	
-	})
-	
-	$(".portletNavigationTree .contenttype-plone-site ").click(function(){
-  			$container.isotope({ filter: "*"});
-  			return false;
-	
-	})
+	var current, filterLinks = $('a[data-appui="contentfilter"').addClass('filterLink');
+  $('a[data-appui="contentfilter"').on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    var selector = $(this).data('filter');
+    $container.isotope({filter: selector});
+  });
+	//$(".portletNavigationTree a.contenttype-projectcategory").click(function(){
+	//		var selector = $(this).attr('data-filter');
+  //    $(this).toggleClass('selected-filter');
+  //			$container.isotope({ filter: selector});
+  //			return false;
+	//
+	//});
+	//$(".portletNavigationTree a.contenttype-specialoffercategory").click(function(){
+	//		var selector = $(this).attr('data-filter');
+  //			$container.isotope({ filter: selector});
+  //			return false;
+	//
+	//})
+	//
+	//$(".portletNavigationTree .contenttype-plone-site ").click(function(){
+  //			$container.isotope({ filter: "*"});
+  //			return false;
+	//
+	//})
 
    });
 
