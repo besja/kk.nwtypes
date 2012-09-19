@@ -9,7 +9,6 @@ class ProjectCategoryView(BrowserView):
     __call__ = ViewPageTemplateFile('templates/projectcategory.pt')
 
 
-
 class SOCategoryView(BrowserView):
     """ special offer category """
     __call__ = ViewPageTemplateFile('templates/socategory.pt')

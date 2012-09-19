@@ -1,29 +1,29 @@
-
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from plone.memoize.instance import memoize
-from Acquisition import aq_base, aq_inner
 from plone.app.portlets import PloneMessageFactory as _
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
 
 from zope.formlib import form
-from zope.interface import implements, Interface
+from zope.interface import implements
 from zope import schema
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from AccessControl import getSecurityManager
 
-from zope.component import getMultiAdapter, getUtility
+from zope.component import getMultiAdapter
 
 
 class IContactPortlet(IPortletDataProvider):
     """A portlet to show contact
     """
-    name = schema.ASCIILine(title=_(u'Name'),
-                            description=_(u'Name.'),
-                            required=True)
+    name = schema.ASCIILine(
+        title=_(u'Name'),
+        description=_(u'Name.'),
+        required=True
+    )
 
     target_contact = schema.Choice(
         title=_(u"Contact"),
@@ -31,9 +31,10 @@ class IContactPortlet(IPortletDataProvider):
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': 'Contact'},
-            default_query='path:'))
+            default_query='path:')
+    )
 
-    
+
 class ContactAssignment(base.Assignment):
     implements(IContactPortlet)
     title = _(u'Contact')
@@ -46,17 +47,16 @@ class ContactAssignment(base.Assignment):
 
 
 class ContactRenderer(base.Renderer):
-   
+
     def __init__(self, context, request, view, manager, data):
 
         base.Renderer.__init__(self, context, request, view, manager, data)
-
-        self.properties = getToolByName(context, 'portal_properties').navtree_properties
+        portal_props = getToolByName(context, 'portal_properties')
+        self.properties = portal_props.navtree_properties
         self.urltool = getToolByName(context, 'portal_url')
 
     def title(self):
         return self.data.name
-
 
     @memoize
     def contact(self):
@@ -77,7 +77,6 @@ class ContactRenderer(base.Renderer):
             # restrictedTraverse accepts only strings
             contact_path = str(contact_path)
         result = portal.unrestrictedTraverse(contact_path, default=None)
-        
         if result is not None:
             sm = getSecurityManager()
             if not sm.checkPermission('View', result):
@@ -86,7 +85,6 @@ class ContactRenderer(base.Renderer):
             return result
         else:
             return None
-
 
     def hasName(self):
         return self.data.name
@@ -101,11 +99,9 @@ class ContactRenderer(base.Renderer):
         pass
 
     def render(self):
-
         return self._template()
 
     _template = ViewPageTemplateFile('templates/contact.pt')
-
 
 
 class ContactAddForm(base.AddForm):
@@ -115,8 +111,9 @@ class ContactAddForm(base.AddForm):
     description = _(u"This portlet display a contact.")
 
     def create(self, data):
-
-        return ContactAssignment(name=data.get('name', u""), target_contact=data.get('target_contact', u""))
+        p_name = data.get('name', u"")
+        p_target = data.get('target_contact', u"")
+        return ContactAssignment(name=p_name, target_contact=p_target)
 
 
 class ContactEditForm(base.EditForm):

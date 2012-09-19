@@ -7,5 +7,3 @@ from Products.CMFCore.utils import getToolByName
 class ProjectView(BrowserView):
     """ project view """
     __call__ = ViewPageTemplateFile('templates/project.pt')
-
-         
