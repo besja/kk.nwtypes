@@ -10,7 +10,7 @@
 
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core" tal:define="results view/getContents">
-   <script type="text/javascript">
+   <!--<script type="text/javascript">
    $(function() {
    	var $container = $('#isotope-container');
   	$container.isotope({
@@ -33,7 +33,7 @@
    });
 
 
-   </script>
+   </script>-->
    <style>
   .isotope-item {
   z-index: 2;
