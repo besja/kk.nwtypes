@@ -24,10 +24,6 @@
 		<tal:x tal:repeat="result results">
 		<div tal:define="item_obj result/getObject" 
 		  tal:attributes="class string:element ${item_obj/getProjectFilter}">
-      <!--<img tal:define="scales item_obj/@@images;
-                 thumbnail python: scales.scale('image', width=400, height=400);"
-        tal:condition="thumbnail"
-        tal:attributes="src thumbnail/url;"/>-->
 			<a tal:attributes="href result/getURL">
 				<tal:x tal:content="structure python:item_obj.getProjectIcon('preview')"></tal:x>
 			</a>

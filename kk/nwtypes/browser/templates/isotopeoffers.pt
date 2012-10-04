@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="kk.chproducts">
+
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core" tal:define="results view/getContents">
+   <style>
+  .isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+} 
+   </style>
+    <div id="isotope-container">
+        <tal:x tal:repeat="result results">
+        <div tal:define="item_obj result/getObject" 
+          tal:attributes="class string:element ${item_obj/getProjectFilter}">
+            <a tal:attributes="href result/getURL">
+        <tal:comment tal:content="nothing">
+                <tal:x tal:content="structure python:item_obj.getProjectIcon('preview')"></tal:x>
+        </tal:comment>
+        <img tal:define="item_url result/getURL"
+          tal:attributes="src python:item_url + '/image_preview'" />
+            </a>
+            <div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
+        </div>
+        </tal:x>
+    </div>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

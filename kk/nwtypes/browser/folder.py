@@ -32,6 +32,7 @@ class IsotopeView(BrowserView):
 
 class IsotopeOffersView(IsotopeView):
     """ isotope view """
+    __call__ = ViewPageTemplateFile('templates/isotopeoffers.pt')
 
     def getContents(self, is_topic=False):
         return self.contents("SpecialOffer", is_topic)
