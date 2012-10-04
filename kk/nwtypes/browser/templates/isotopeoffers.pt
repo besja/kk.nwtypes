@@ -25,11 +25,8 @@
         <div tal:define="item_obj result/getObject" 
           tal:attributes="class string:element ${item_obj/getProjectFilter}">
             <a tal:attributes="href result/getURL">
-        <tal:comment tal:content="nothing">
-                <tal:x tal:content="structure python:item_obj.getProjectIcon('preview')"></tal:x>
-        </tal:comment>
-        <img tal:define="item_url result/getURL"
-          tal:attributes="src python:item_url + '/image_preview'" />
+              <img tal:define="item_url result/getURL"
+                tal:attributes="src python:item_url + '/image_preview'" />
             </a>
             <div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>
         </div>
