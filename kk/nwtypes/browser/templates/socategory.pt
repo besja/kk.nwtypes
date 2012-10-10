@@ -10,28 +10,12 @@
 
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core" tal:define="results python:context.portal_catalog(portal_type='SpecialOffer', path='/'.join(context.getPhysicalPath()),sort_on='getProjectPosition', sort_order='descending')">
-   <script type="text/javascript">
-   $(function() {
-  	$('#isotope-container').isotope({
 
-	});
-   });
-
-
-   </script>
-	<div id="isotope-container">
-      <h1>Test this view</h1>
-		<div tal:repeat="result results" class="item">
-         <tal:image tal:define="item_obj result/getObject">
-            <img tal:define="scales item_obj/@@images;
-                             thumbnail python: scales.scale('image', width=64, height=64);"
-               tal:condition="thumbnail"
-               tal:attributes="src thumbnail/url;
-                               width thumbnail/width;
-                               height thumbnail/height" />
-         </tal:image>
-			<tal:x tal:content="structure python:result.getObject().tag(scale='mini')"></tal:x>
-			<p><a tal:attributes="href result/getURL" tal:content="result/Title"></a></p>
+	<div id="xisotope-container">
+    <div tal:repeat="result results" class="item">
+      <a href="" tal:attributes="href result/getURL">
+			<tal:x tal:content="structure python:result.getObject().tag(scale='mini')"></tal:x></a>
+			<div class="underline"><a tal:attributes="href result/getURL" tal:content="result/Title"></a></div>  
 		</div>
 	</div>
 

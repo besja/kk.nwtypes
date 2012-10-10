@@ -12,6 +12,13 @@
 <metal:block define-macro="content-core">
 <div class="info">
 <tal:x tal:replace="structure python:context.tag(scale='large')" />
+<div class="back"
+          tal:define="context_state context/@@plone_context_state;
+                      parent context_state/parent;
+                      parent_url parent/absolute_url">
+            <a href="" tal:attributes="href parent_url">
+              &laquo; <span tal:content="parent/Title" /></a>
+</div>
 <div class="text" tal:content="structure context/getText"></div>
 </div>
 <form tal:define="errors options/state/getErrors"
@@ -42,13 +49,13 @@
     </td>
   <td>
     <div class="field">
-      <div class="chk-line" tal:define="chk1 python:request.get('chk1', None)">
+      <!-- <div class="chk-line" tal:define="chk1 python:request.get('chk1', None)">
         <input type="checkbox" 
               name="chk1" 
               value="1"
               tal:attributes="checked python:chk1 and True or nothing"/> 
           Kaufen
-    </div>
+    </div> -->
       <div class="chk-line" tal:define="chk2 python:request.get('chk1', None)">
         <input type="checkbox" 
               name="chk2" 
