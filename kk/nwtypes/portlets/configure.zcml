@@ -13,4 +13,14 @@
          editview="kk.nwtypes.browser.contact.ContactEditForm"
          />
 
+    <plone:portlet
+        name="kk.nwtypes.filternavigation"
+        interface=".filternavigationportlet.IFilterNavigationPortlet"
+        assignment=".filternavigationportlet.Assignment"
+        view_permission="zope2.View"
+        edit_permission="cmf.ManagePortal"
+        renderer=".filternavigationportlet.Renderer"
+        addview=".filternavigationportlet.AddForm"
+        />
+
 </configure>

@@ -1,0 +1,40 @@
+<dl class="portlet portletFilterNavigationPortlet"
+    i18n:domain="kk.nwtypes">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <span tal:content="view/root_info">
+           Title of Asignment Context Object
+        </span>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem" tal:define="items view/items">
+        <ul class="navTree"
+            tal:define="normalizeString nocall: context/plone_utils/normalizeString;">
+            <tal:items tal:repeat="node items">
+                <li tal:define="li_id_class     node/id;
+                                item_url        node/getURL;
+                                item_type       node/portal_type;
+                                item_class string:state-published;
+                                is_root view/isRootLevel;
+                                is_current python:view.is_current(li_id_class);
+                                li_class        python:is_current and ' navTreeCurrentNode' or '';
+                                li_extr_class   python:'';
+                                item_type_class python:'contenttype-' + normalizeString(item_type);
+                                item_class python:is_current and item_class + ' navTreeCurrentItem' or item_class;"
+                    class="navTreeItem visualNoMarker">
+                    <a tal:attributes="href item_url;
+                           title node/Description;
+                           class string:$item_class${li_class}${li_extr_class} $item_type_class;
+                           data-filter string:.${li_id_class};
+                           data-appui python:is_root and 'contentfilter' or 'inactive'">
+                        <span tal:content="node/Title">Selected Item Title</span>
+                    </a>
+
+                </li>
+            </tal:items>
+        </ul>
+    </dd>
+
+</dl>

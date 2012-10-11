@@ -19,5 +19,8 @@
     <include package=".browser" />
     <include package=".portlets" />
   <!-- -*- extra stuff goes here -*- -->
+
+  <include package=".portlets" />
+  
   
 </configure>

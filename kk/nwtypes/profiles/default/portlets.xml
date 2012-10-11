@@ -5,5 +5,10 @@
     title="Contact"
     description="show a contact"
     />
+    <portlet
+      addview="kk.nwtypes.filternavigation"
+      title="Filter Navigation"
+      description="A filterable navigation portlet"
+      />
 
 </portlets>
