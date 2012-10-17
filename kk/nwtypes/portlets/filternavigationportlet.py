@@ -40,8 +40,10 @@ class Renderer(base.Renderer):
     def root_info(self):
         context = aq_inner(self.context)
         actx = find_assignment_context(self.data, context)
-        title = actx.Title()
-        return title
+        info = {}
+        info['title'] = actx.Title()
+        info['url'] = actx.absolute_url()
+        return info
 
     def isRootLevel(self):
         context = aq_inner(self.context)

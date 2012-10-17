@@ -1,12 +1,13 @@
 <dl class="portlet portletFilterNavigationPortlet"
     i18n:domain="kk.nwtypes">
 
-    <dt class="portletHeader">
-        <span class="portletTopLeft"></span>
-        <span tal:content="view/root_info">
+    <dt class="portletHeader"
+        tal:define="rootinfo view/root_info">
+        <a href=""
+            tal:attributes="href rootinfo/url"
+            tal:content="rootinfo/title">
            Title of Asignment Context Object
-        </span>
-        <span class="portletTopRight"></span>
+        </a>
     </dt>
 
     <dd class="portletItem" tal:define="items view/items">
