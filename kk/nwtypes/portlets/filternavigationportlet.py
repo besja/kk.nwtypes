@@ -39,7 +39,7 @@ class Renderer(base.Renderer):
 
     def root_info(self):
         context = aq_inner(self.context)
-        actx = find_assignment_context(self.data, context)
+        actx = find_assignment_context(self.data, self.context)
         info = {}
         info['title'] = actx.Title()
         info['url'] = actx.absolute_url()
@@ -47,7 +47,7 @@ class Renderer(base.Renderer):
 
     def isRootLevel(self):
         context = aq_inner(self.context)
-        actx = find_assignment_context(self.data, context)
+        actx = find_assignment_context(self.data, self.context)
         toplevel = False
         if context.getId() == actx.getId():
             toplevel = True

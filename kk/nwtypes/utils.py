@@ -1,3 +1,4 @@
+from Acquisition import aq_inner, aq_parent, aq_base 
 from zope.component import getUtility, getMultiAdapter, ComponentLookupError
 from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
@@ -5,7 +6,7 @@ from plone.portlets.interfaces import IPortletManager
 
 def find_assignment_context(assignment, context):
     # Finds the creation context of the assignment
-    context = context.aq_inner
+    context = aq_inner(context)
     manager_name = assignment.manager.__name__
     assignment_name = assignment.__name__
     while True:
@@ -15,11 +16,11 @@ def find_assignment_context(assignment, context):
             mapping = getMultiAdapter((context, manager),
                                       IPortletAssignmentMapping)
             if assignment_name in mapping:
-                if mapping[assignment_name] is assignment.aq_base:
+                if aq_base(mapping[assignment_name]) is aq_base(assignment):
                     return context
         except ComponentLookupError:
             pass
-        parent = context.aq_parent
+        parent = aq_parent(context)
         if parent is context:
             return None
         context = parent

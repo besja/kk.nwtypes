@@ -15,6 +15,7 @@ kk/nwtypes/__init__.py
 kk/nwtypes/config.py
 kk/nwtypes/interfaces.py
 kk/nwtypes/tests.py
+kk/nwtypes/utils.py
 kk/nwtypes/browser/__init__.py
 kk/nwtypes/browser/contact.py
 kk/nwtypes/browser/folder.py
@@ -27,3 +28,7 @@ kk/nwtypes/content/projectcategory.py
 kk/nwtypes/content/specialoffer.py
 kk/nwtypes/content/specialoffercategory.py
 kk/nwtypes/portlets/__init__.py
+kk/nwtypes/portlets/filternavigationportlet.py
+kk/nwtypes/tests/__init__.py
+kk/nwtypes/tests/base_filternavigationportlet.py
+kk/nwtypes/tests/test_filternavigationportlet.py
